@@ -1,0 +1,25 @@
+
+#need to import the os library and the code runs in python
+def split_data(SOURCE, TRAINING, TESTING, SPLIT_SIZE):
+    
+    
+    ind = int(SPLIT_SIZE * len(os.listdir(SOURCE)))
+    
+    img = os.listdir(SOURCE)
+    
+    random.sample(img, len(img))
+    
+    ti = img[:ind]
+    
+    tti = img[ind:]
+    
+# Training director is created
+    for i in ti:
+        src = os.path.join(SOURCE,i)
+        dst = os.path.join(TRAINING,i)
+        shutil.copyfile(src,dst)
+#Testing directory is created        
+    for j in tti:
+        src = os.path.join(SOURCE,j)
+        dst = os.path.join(TESTING,j)
+        shutil.copyfile(src,dst)
